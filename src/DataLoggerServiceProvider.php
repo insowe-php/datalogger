@@ -2,7 +2,10 @@
 
 namespace Insowe\DataLogger;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Insowe\DataLogger\Events\Updated;
+use Insowe\DataLogger\Listeners\DataLoggerListener;
 
 class DataLoggerServiceProvider extends ServiceProvider
 {
@@ -15,8 +18,10 @@ class DataLoggerServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'insowe');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'insowe');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        
+        Event::listen(Updated::class, DataLoggerListener::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -31,12 +36,12 @@ class DataLoggerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/datalogger.php', 'datalogger');
+        //$this->mergeConfigFrom(__DIR__.'/../config/datalogger.php', 'datalogger');
 
         // Register the service the package provides.
-        $this->app->singleton('datalogger', function ($app) {
+        /*$this->app->singleton('datalogger', function ($app) {
             return new DataLogger;
-        });
+        });*/
     }
 
     /**
@@ -57,9 +62,14 @@ class DataLoggerServiceProvider extends ServiceProvider
     protected function bootForConsole()
     {
         // Publishing the configuration file.
-        $this->publishes([
+        /*$this->publishes([
             __DIR__.'/../config/datalogger.php' => config_path('datalogger.php'),
-        ], 'datalogger.config');
+        ], 'datalogger.config');*/
+        
+        // Publishing the database migration file.
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'datalogger.migrations');
 
         // Publishing the views.
         /*$this->publishes([
