@@ -1,0 +1,33 @@
+{
+    "name": "insowe/datalogger",
+    "description": "Save data logs to Cloud Storage.",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Insowe Co., Ltd.",
+            "email": "info@insowe.com"
+        }
+    ],
+    "homepage": "https://github.com/insowe-php/datalogger",
+    "keywords": ["Laravel", "Insowe", "DataLogger"],
+    "require": {
+        "laravel/framework": "^6.2"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Insowe\\DataLogger\\": "src/"
+        }
+    },
+    "autoload-dev": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Insowe\\DataLogger\\DataLoggerServiceProvider"
+            ],
+            "aliases": {
+                "DataLogger": "Insowe\\DataLogger\\Facades\\DataLogger"
+            }
+        }
+    }
+}
