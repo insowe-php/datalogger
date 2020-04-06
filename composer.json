@@ -1,7 +1,7 @@
 {
     "name": "insowe/datalogger",
     "description": "Save data logs to Cloud Storage.",
-    "license": "license",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Insowe Co., Ltd.",
