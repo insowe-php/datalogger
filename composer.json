@@ -24,10 +24,7 @@
         "laravel": {
             "providers": [
                 "Insowe\\DataLogger\\DataLoggerServiceProvider"
-            ],
-            "aliases": {
-                "DataLogger": "Insowe\\DataLogger\\Facades\\DataLogger"
-            }
+            ]
         }
     }
 }
