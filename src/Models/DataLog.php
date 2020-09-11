@@ -15,6 +15,15 @@ class DataLog extends BaseModel
      * @var string
      */
     const UPDATED_AT = null;
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
     
     /**
      * The attributes that are mass assignable.

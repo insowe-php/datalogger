@@ -16,6 +16,7 @@ class CreateDataLogsTable extends Migration
         Schema::create('data_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('data_type', [
+                'sample',
                 // Put data types of the app here!
             ])->comment('資料類型');
             $table->unsignedBigInteger('data_id')->comment('資料編號');

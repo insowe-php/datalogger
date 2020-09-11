@@ -18,7 +18,7 @@ class DataLoggerServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'insowe');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'insowe');
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         
         Event::listen(Updated::class, DataLoggerListener::class);

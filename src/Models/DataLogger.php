@@ -19,10 +19,12 @@ trait DataLogger
     
     public function toLogFile()
     {
-        if (in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this))) {
+        if (in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this))) 
+        {
             $item = self::withTrashed()->find($this->id);
         }
-        else {
+        else 
+        {
             $item = self::find($this->id);
         }
         
@@ -44,7 +46,11 @@ trait DataLogger
     
     public function setLogId($logId)
     {
-        $this->log_id = $logId;
-        $this->save();
+        if (is_array(data_get($this, 'attributes'))
+                && key_exists('log_id', $this->attributes))
+        {
+            $this->log_id = $logId;
+            $this->save();
+        }
     }
 }
