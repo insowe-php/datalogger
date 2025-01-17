@@ -11,7 +11,7 @@
     "homepage": "https://github.com/insowe-php/datalogger",
     "keywords": ["Laravel", "Insowe", "DataLogger"],
     "require": {
-        "laravel/framework": ">6.2"
+        "laravel/framework": ">=10"
     },
     "require-dev": {},
     "autoload": {
